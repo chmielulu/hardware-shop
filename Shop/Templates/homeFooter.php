@@ -1,44 +1,46 @@
 <section class="dealer">
     <header>
-        <h2>Autoryzowany sprzedawca</h2>
+        <h4>Autoryzowany dealer</h4>
     </header>
 
-    <div class="prodecer"><i>Ikona</i></div>
-    <div class="prodecer"><i>Ikona</i></div>
-    <div class="prodecer"><i>Ikona</i></div>
-    <div class="prodecer"><i>Ikona</i></div>
+    <div class="prodecer"><span class="iconify" data-icon="simple-icons:intel" data-inline="false"></span></div>
+    <div class="prodecer"><span class="iconify" data-icon="simple-icons:amd" data-inline="false"></span></div>
+    <div class="prodecer"><span class="iconify" data-icon="simple-icons:nvidia" data-inline="false"></span></div>
+    <div class="prodecer"><span class="iconify" data-icon="ant-design:apple-fill" data-inline="false"></span></div>
     </section>
 
     <section class="end">
-        <div class="yourAccount">
-            <h3>Twoje konto</h3>
+        <div class="yourAccount first">
+            <h4>Twoje konto</h4>
                 <p><a href="">Zamówienia w realizacji</a></p>
                 <p><a href="">Produkty do oceny</a></p>
                 <p><a href="">Modyfikacja zamówienia</a></p>
         </div>
-        <div class="legalInformation">
-            <h3>Informacje prawne</h3>
+        <div class="legalInformation first">
+            <h4>Informacje prawne</h4>
                 <p><a href="">Regulamin sklepu</a></p>
                 <p><a href="">Produkty do oceny</a></p>
                 <p><a href="">Modyfikacja zamówienia</a></p>
         </div>
-        <div class="shopAbout">
-            <h3>Hardware.pl</h3>
+        <div class="shopAbout first">
+            <h4>Hardware.pl</h4>
                 <p><a href="">Zamówienia w realizacji</a></p>
                 <p><a href="">Produkty do oceny</a></p>
                 <p><a href="">Modyfikacja zamówienia</a></p>
         </div>
         <div class="answers">
-            <h3>Masz pytania?</h3>
+            <h4>Masz pytania?</h4>
                 <p><a href="">Zamówienia w realizacji</a></p>
                 <p><a href="">Produkty do oceny</a></p>
                 <p><a href="">Modyfikacja zamówienia</a></p>
         </div>
         <div class="socialMedia">
-            <h3>Social media</h3>
-                <p><a href="">Zamówienia w realizacji</a></p>
-                <p><a href="">Produkty do oceny</a></p>
-                <p><a href="">Modyfikacja zamówienia</a></p>
+            <h4>Social media</h4>
+            <div class="icons">
+                <p><a href="" class="facebook"><span class="iconify" data-icon="ps:facebook-alt" data-inline="false"></span></a></p>
+                <p><a href="" class="instagram"><span class="iconify" data-icon="ant-design:instagram-fill" data-inline="false"></span></a></p>
+                <p><a href="" class="youtube"><span class="iconify" data-icon="fa:youtube-play" data-inline="false"></span></a></p>
+            </div>
         </div>
     </section>
 </section>

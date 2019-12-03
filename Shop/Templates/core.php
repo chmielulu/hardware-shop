@@ -12,70 +12,67 @@
     <meta property="og:site_name" content="hardware.pl">
     <meta property="og:image" content="">
 
-    <link rel="stylesheet" href=<?php echo DIR_CSS."core.css" ?>>
+    <link rel="stylesheet" href=<?php echo DIR_CSS."main.css" ?>>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Sunflower:500&display=swap&subset=latin-ext" rel="stylesheet">
+    <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
 </head>
 <body>
     <header class="header">
         <div class="navbar">
-            <div class="companyLogo">
-                <h1><a href="http://localhost/Shop">Hardware</a></h1>
+            <div class="companyLogo navbarElement">
+                <h1><a href="http://localhost/Shop">Hardware<span></span></a></h1>
             </div>
 
-            <div class="contentContainer">
-                <div class="searchContainer">
-                    <form>
-                    <input type="text">
+            <div class="searchContainer navbarElement">
+                <form>
+                <input type="text" class="searchText" placeholder="Wyszukaj produkt">
 
-                    <div class="searchOptionsContainer">
-                        <i>Ikona</i>
+                <select class="searchOptionsList">
+                    <option>Wszystko</option>
+                    <option>Laptopy</option>
+                    <option>Podzespoły komputerowe</option>
+                    <option>Telefony</option>
+                    <option>Fotografia</option>
+                    <option>Kable i adaptery</option>
+                    <option>Oprogramowanie</option>
+                </select>
 
-                        <select class="searchOptionsList">
-                            <option>Wszystko</option>
-                            <option>Laptopy</option>
-                            <option>Podzespoły komputerowe</option>
-                            <option>Telefony</option>
-                            <option>Fotografia</option>
-                            <option>Kable i adaptery</option>
-                            <option>Oprogramowanie</option>
-                        </select>
-                    </div>
-
-                    <button>Ikona</button>
-                    </form>
-                </div>
+                <button class="searchButton"><span class="iconify" data-icon="dashicons:search" data-inline="false"></span></button>
+            </form>
             </div>
 
             <div class="rightOptionsContainer">
-                <div class="logIn&SignUp">
-                    <i>Ikona</i>
+                <div class="logInAndSignUp rightOption">
+                    <div class="rightOptionIcon"><span class="iconify" data-icon="fa-solid:user" data-inline="false"></span></div>
 
-                    <span>
-                        Zaloguj się
-                        Załóż konto
-                    </span>
+                    <div class="rightOptionText">
+                        <span class="twoLine">Zaloguj się</span> 
+                        <span>Załóż konto</span>
+                    </div>
                 </div>
 
-                <div class="contact">
-                    <i>Ikona</i>
+                <div class="contact rightOption">
+                    <div class="rightOptionIcon"><span class="iconify" data-icon="mdi:phone-classic" data-inline="false"></span></div>
 
-                    <span>
-                        Kontakt
-                    </span>
+                    <div class="rightOptionText">
+                        <span>Kontakt</span>
+                    </div>
                 </div>
 
-                <div class="basket">
-                    <span>0,00 zł</span>
+                <div class="basket rightOption">
+                    <div class="rightOptionIcon"><span class="iconify" data-icon="simple-line-icons:basket" data-inline="false"></span></div>
 
-                    <i>Ikona</i>
+                    <div class="rightOptionText">
+                        <span>0,00 zł</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <nav>
+        <nav class="categoryContainer">
             <h2>Kategorie</h2>
-            <ol>
-                <li>Komputery
+            <ol class="mainCategories">
+                <li><span class="mainCategoriesElement">Komputery</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
                     <ul>
                         <li><a href="">Komputery PC</a>
                             <ul>
@@ -140,7 +137,7 @@
                     </ul>
                 </a></li>
                 
-                <li>Laptopy
+                <li><span class="mainCategoriesElement">Laptopy</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
                     <ul>
                         <li><a href="">Laptopy, ultrabooki</a>
                             <ul>
@@ -168,8 +165,8 @@
                         </li>
                     </ul>
                 </a></li>
-                <li>Kable i adaptery</li>
-                <li>Telefony
+                <li><span class="mainCategoriesElement">Kable i adaptery</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span></li>
+                <li><span class="mainCategoriesElement">Telefony</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
                     <ul>
                         <li><a href="">Smartfony</a>
                             <ul>
@@ -230,9 +227,9 @@
                         </li>
                     </ul>
                 </li>
-                <li>Fotografia</li>
-                <li>Strefa gracza</li>
-                <li>Usługi komputerowe</li>
+                <li><span class="mainCategoriesElement">Fotografia</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span></li>
+                <li><span class="mainCategoriesElement">Strefa gracza</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span></li>
+                <li><span class="mainCategoriesElement">Usługi komputerowe</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span></li>
             </ol>
         </nav>
     </header>

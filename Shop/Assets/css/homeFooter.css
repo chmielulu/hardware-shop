@@ -1,21 +1,19 @@
 /*
-Error: Undefined variable: "$white".
-        on line 14 of C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\home.scss
+Error: Undefined variable: "$dealerbackground".
+        on line 4 of C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\homeFooter.scss
 
-9: }
-10: 
-11: .discountContainer{
-12:     width: 1800px;
-13:     height: 525px;
-14:     background: $white;
-15:     border-radius: 20px;
-16:     margin: auto;
-17:     margin-top: 30px;
-18:     display: flex;
-19:     align-items: center;
+1: .dealer{
+2:     width: 100%;
+3:     height: 330px;
+4:     background: $dealerbackground;
+5:     margin-top: 30px;
+6:     display: flex;
+7:     align-items: center;
+8:     justify-content: center;
+9:     position: relative;
 
 Backtrace:
-C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\home.scss:14
+C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\homeFooter.scss:4
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -62,4 +60,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$white\".\A         on line 14 of C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\home.scss\A \A 9: }\A 10: \A 11: .discountContainer{\A 12:     width: 1800px;\A 13:     height: 525px;\A 14:     background: $white;\A 15:     border-radius: 20px;\A 16:     margin: auto;\A 17:     margin-top: 30px;\A 18:     display: flex;\A 19:     align-items: center;"; }
+  content: "Error: Undefined variable: \"$dealerbackground\".\A         on line 4 of C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\homeFooter.scss\A \A 1: .dealer{\A 2:     width: 100%;\A 3:     height: 330px;\A 4:     background: $dealerbackground;\A 5:     margin-top: 30px;\A 6:     display: flex;\A 7:     align-items: center;\A 8:     justify-content: center;\A 9:     position: relative;"; }

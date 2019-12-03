@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,OAAO;EACH,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK",
+"sources": ["../sass/homeFooter.scss"],
+"names": [],
+"file": "homeFooter.css"
+}

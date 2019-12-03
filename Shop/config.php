@@ -17,7 +17,10 @@
     }
 
     define("DIR_ASSETS", "Assets/");
+    define("DIR_IMAGES", DIR_ASSETS."images/");
     define("DIR_TEMPLATES", "Templates/");
+    define("DIR_TUTORIALS", DIR_IMAGES."Tutorials/");
+    define("TDIR_TUTORIALS", "./".DIR_IMAGES."Tutorials/");
     define("DIR_PRODUCTS", "Products/");
     define("TDIR_PRODUCTS", "./".DIR_PRODUCTS);
     define("DIR_PRODUCT_IMAGES", DIR_PRODUCTS."Images/");

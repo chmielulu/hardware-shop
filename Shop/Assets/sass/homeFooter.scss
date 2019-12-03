@@ -1,0 +1,93 @@
+.dealer{
+    width: 100%;
+    height: 330px;
+    background: $dealerbackground;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    h4{
+        font-size: 24px;
+        color: $litegray;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    svg{
+        font-size: 100px;
+        color: $lightgray;
+        margin-right: 60px;
+    }
+
+    .prodecer:last-of-type svg{
+        margin-right: 0;
+    }
+}
+
+.end{
+    height: 250px;
+    display: flex;
+    background: $white;
+    align-items: center;
+    justify-content: center;
+
+    h4{
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $darkgray;
+        margin-bottom: 10px;
+    }
+
+    .first{
+        margin-right: 40px;
+    }
+
+    .shopAbout{
+        margin-right: 80px;
+    }
+
+    a{
+        color: $darkgray;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.4;
+    }
+
+    .answers{
+        margin-right: 40px;
+    }
+}
+
+.socialMedia{  
+    .icons{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    svg{
+        font-size: 23px;
+        color: $darkgray;
+    }
+
+    .instagram svg{
+        font-size: 27px;
+    }
+
+    a{
+        margin-right: 4px;
+    }
+
+    .youtube{
+        margin-right: 0;
+    }
+}
