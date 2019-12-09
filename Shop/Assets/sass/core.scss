@@ -7,6 +7,11 @@ body{
     padding: 0;
 }
 
+*:focus
+{
+    outline: none;
+}
+
 .header{
     height: 95px;
 }
@@ -67,15 +72,6 @@ body{
     color: $darkgray;
 }
 
-.searchOptionsList{
-    width: 135px;
-    height: 45px;
-    border: 0;
-    outline: 0;
-    border-left: 1px solid $darkgray;
-    padding-left: 5px;
-}
-
 .searchButton{
     width: 60px;
     height: 45px;
@@ -119,6 +115,108 @@ body{
     .twoLine{
         margin-bottom: 5px;
     }
+}
+
+.selectBox{
+    width: 160px;
+    height: 45px;
+    border-left: 1px solid $darkgray;
+    position: relative;
+}
+
+.selectButton{
+    position: relative;
+    display: flex;
+    height: 45px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    font-size: 13px;
+
+    svg{
+        color: $darkgray;
+        font-size: 10px;
+        transition: .2s;
+    }
+}
+
+#optionViewButton{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.selectedValue{
+    margin-left: 10px;
+}
+
+.options{
+    width: 175px;
+    height: 0;
+    transition: .2s;
+    background: $dealerbackground;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    border-radius: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+label{
+    font-size: 14px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+
+
+    input{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    span{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .2s;
+    }
+}
+
+label:hover span{
+    background: #fff;
+}
+
+#optionViewButton:checked ~ .options{
+    height: 245px;
+}
+
+#optionViewButton:checked + .selectButton svg{
+    transform: rotate(180deg)!important;
+}
+
+.filter:checked ~ span{
+    background: #fff;
+    color: $blue;
 }
 
 .categoryContainer{

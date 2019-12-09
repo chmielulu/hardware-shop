@@ -27,16 +27,62 @@
                 <form>
                 <input type="text" class="searchText" placeholder="Wyszukaj produkt">
 
-                <select class="searchOptionsList">
-                    <option>Wszystko</option>
-                    <option>Laptopy</option>
-                    <option>Podzespoły komputerowe</option>
-                    <option>Telefony</option>
-                    <option>Fotografia</option>
-                    <option>Kable i adaptery</option>
-                    <option>Oprogramowanie</option>
-                </select>
+                <div class="selectBox">
+                    <input type="checkbox" id="optionViewButton">
+                    
+                    <div class="selectButton brd">
+                        <div class="arrow">
+                            <span class="iconify" data-icon="bx:bxs-down-arrow" data-inline="false"></span>
+                        </div>
 
+                        <div class="selectedValue">
+                            Wszystko
+                        </div>
+                    </div>
+
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="filters" class="filter" value="Wszystko" checked>
+                            <span>Wszystko</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="filters" class="filter" value="Komputery">
+                            <span>Komputery</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="filters" class="filter"value="Laptopy">
+                            <span>Laptopy</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="filters" class="filter" value="Podzespoły komp...">
+                            <span>Podzespoły komputerowe</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="filters" class="filter" value="Telefony">
+                            <span>Telefony</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="filters" class="filter" value="Fotografia">
+                            <span>Fotografia</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="filters" class="filter" value="Kable i adaptery">
+                            <span>Kable i adaptery</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="filters" class="filter" value="Oprogramowanie">
+                            <span>Oprogramowanie</span>
+                        </label>
+                    </div>
+                </div>
+                
                 <button class="searchButton"><span class="iconify" data-icon="dashicons:search" data-inline="false"></span></button>
             </form>
             </div>
@@ -68,7 +114,6 @@
                 </div>
             </div>
         </div>
-
         <nav class="categoryContainer">
             <h2>Kategorie</h2>
             <ol class="mainCategories">
@@ -245,5 +290,7 @@
             loadFile(DIR_TEMPLATES."homeFooter.php");
         ?>
     </footer>
+
+    <script type="text/javascript" src="<?php echo TDIR_SCRIPTS."core.js"?>"></script>
 </body>
 </html>

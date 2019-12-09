@@ -26,5 +26,9 @@
     define("DIR_PRODUCT_IMAGES", DIR_PRODUCTS."Images/");
     define("TDIR_PRODUCT_IMAGES", "./".DIR_PRODUCTS);
     define("DIR_CSS", DIR_ASSETS."css/");
+    define("DIR_SCRIPTS", DIR_ASSETS."scripts/");
     define("TDIR_CSS", "./".DIR_CSS);
+    define("TDIR_SCRIPTS", "./".DIR_SCRIPTS);
+
+    loadFile("database.php");
 ?>
