@@ -31,7 +31,7 @@ a{
     border-bottom: 1px solid $darkgray;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     z-index: 10;
-    position: relative;
+    position: fixed;
 }
 
 .navbarElement{
@@ -129,6 +129,95 @@ a{
 
 .rightOption:hover{
     text-decoration: underline;
+}
+
+.rightOption:nth-of-type(2){
+    height: 95px;
+    padding: 0 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: .2s;
+    position: relative;
+    transition: .2s;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    cursor:default;
+}
+
+.contactInfoContainer{
+    position: absolute;
+    height: 0px;
+    width: 280px;
+    top: 95px;
+    left: -1px;
+    background: $white;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity .2s;
+    overflow: hidden;
+    height: 200px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid $lightgray;
+    opacity: 0;
+    transform: scale(0);
+
+    .contactPhone, .contactMail{
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .contactMail{
+        margin-top: 30px;
+    }
+
+    .contactText{
+        margin-left: 20px;
+
+        span:first-of-type{
+            font-size: 20px;
+            text-align: left;
+        }
+    
+        span:last-of-type{
+            font-size: 12px;
+            text-align: left;
+        }
+    }
+
+    svg{
+        font-size: 30px;
+        margin-left: 20px;
+    }
+}
+
+.rightOption:nth-of-type(2):hover{
+    text-decoration: none;
+    border: 1px solid $lightgray;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.rightOption:nth-of-type(2):hover::before{
+    width: 100%;
+    bottom: -1.5px;
+    height: 3px;
+    background: $white;
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: 5;
+}
+
+
+.rightOption:nth-of-type(2):hover .contactInfoContainer{
+    opacity: 1;
+    transform: scale(1);
 }
 
 .selectBox{
@@ -281,6 +370,7 @@ label:hover span{
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     background: $white;
+    padding-top: 95px;
 
     h2{
         color: $green;

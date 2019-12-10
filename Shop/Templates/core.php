@@ -103,6 +103,26 @@
                     <div class="rightOptionText">
                         <span>Kontakt</span>
                     </div>
+
+                    <div class="contactInfoContainer">
+                        <div class="contactPhone">
+                            <span class="iconify" data-icon="feather:phone" data-inline="false"></span>
+
+                            <div class="contactText">
+                                <span>12 345 76 23</span>
+                                <span>Pon. - Niedz. 8:00 - 21:00</span>
+                            </div>
+                        </div>
+
+                        <div class="contactMail">
+                            <span class="iconify" data-icon="ic:baseline-alternate-email" data-inline="false"></span>
+
+                            <div class="contactText">
+                                <span>kontakt@hardware.pl</span>
+                                <span>Odpowiedź w ciągu 24h</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="basket rightOption">
