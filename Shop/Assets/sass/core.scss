@@ -12,6 +12,11 @@ body{
     outline: none;
 }
 
+a{
+    text-decoration: none;
+    color: $darkgray;
+}
+
 .header{
     height: 95px;
 }
@@ -86,6 +91,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .2s;
+}
+
+.searchButton:hover{
+    background: #000;
 }
 
 .rightOptionsContainer{
@@ -115,6 +125,10 @@ body{
     .twoLine{
         margin-bottom: 5px;
     }
+}
+
+.rightOption:hover{
+    text-decoration: underline;
 }
 
 .selectBox{
@@ -219,16 +233,54 @@ label:hover span{
     color: $blue;
 }
 
+.mainCategories{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    > li{
+        width: 72%;
+        border-bottom: 1px solid $darkgray;
+        padding: 18px 0 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        position: relative;
+
+        .mainCategoriesElement{
+            padding-left: 10px;
+        }
+    }
+
+    
+    > li:hover{
+        border-bottom: 3px solid $mainCategorieHover;
+        height: 20px;
+    }
+
+    svg{
+            position: absolute;
+            right: 0;
+            top: 36%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            transition: .2s;
+    }
+
+    
+    > li:hover svg{
+        transform: rotate(180deg)!important;
+    }
+}
+
 .categoryContainer{
     width: 335px;
     height: 535px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     background: $white;
-
-    ol > li > ul{
-        display: none;
-    }
 
     h2{
         color: $green;
@@ -242,33 +294,81 @@ label:hover span{
     li{
         list-style-type: none;
     }
-}
 
-.mainCategories{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    li{
-        width: 72%;
-        border-bottom: 1px solid $darkgray;
-        padding: 18px 0 15px 0;
-        font-size: 18px;
-        font-weight: 600;
-        position: relative;
-
-        .mainCategoriesElement{
-            padding-left: 10px;
-        }
+    ol > li > ul{
+        height: 495px;
+        width: 0;
+        overflow: hidden;
+        transition: .2s;
+        position: absolute;
+        display: flex;
+        background: $white;
+        left: 241.2px;
+        border-bottom-right-radius: 20px;
+        padding-top: 40px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-left: 0;
+        opacity: 0;
     }
 
-    svg{
-            position: absolute;
-            right: 0;
-            top: 36%;
-            transform: translateY(-50%);
-            font-size: 20px;
+    ol > li:hover > ul{
+        width: 813px;
+        padding-left: 47px;
+        opacity: 1;
+    }
+
+    ol > li:nth-of-type(1) > ul{
+        top: -79px;
+    }
+
+    ol > li:nth-of-type(2) > ul{
+        top: -135px;
+    }
+
+    ol > li:nth-of-type(3) > ul{
+        top: -191px;
+    }
+
+    ol > li:nth-of-type(4) > ul{
+        top: -247px;
+    }
+
+    ol > li:nth-of-type(5) > ul{
+        top: -303px;
+    }
+
+    ol > li:nth-of-type(6) > ul{
+        top: -359px;
+    }
+
+    ol > li:nth-of-type(7) > ul{
+        top: -415px;
+    }
+
+    ol > li > ul > li > ul > li{
+        font-weight: 300;
+        width: unset;
+        height: unset;
+        border: unset;
+        padding: 0;
+        font-size: 18px;
+        margin-top: 3px;
+    }
+
+    ol > li > ul > li > ul > li:first-of-type{
+        margin-top: 6px;
+    }
+
+    ol > li > ul > li{
+        border: unset;
+        padding: 0;
+        max-width: 220px;
+        margin-top: 10px;
+    }
+
+    ol > li > ul > li > a{
+        width: 220px;
+        font-size: 18px;
     }
 }

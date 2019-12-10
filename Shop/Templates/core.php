@@ -234,13 +234,6 @@
                             </ul>
                         </li>
 
-                        <li><a href="">Ochrona</a>
-                            <ul>
-                                <li><a href="">Etui i pokrowce</a></li>
-                                <li><a href="">Folie i szkła ochronne</a></li>
-                            </ul>
-                        </li>
-
                         <li><a href="">Zasilanie</a>
                             <ul>
                                 <li><a href="">Baterie do telefonów</a></li>
@@ -257,6 +250,13 @@
                                 <li><a href="">Smartbandy</a></li>
                                 <li><a href="">Akcesoria do smartwatchy</a></li>
                                 <li><a href="">Pulsometry i krokomierze</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="">Ochrona</a>
+                            <ul>
+                                <li><a href="">Etui i pokrowce</a></li>
+                                <li><a href="">Folie i szkła ochronne</a></li>
                             </ul>
                         </li>
 

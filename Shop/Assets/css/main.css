@@ -9,6 +9,10 @@ body {
 *:focus {
   outline: none; }
 
+a {
+  text-decoration: none;
+  color: #2d2d2d; }
+
 .header {
   height: 95px; }
 
@@ -73,7 +77,11 @@ body {
   outline: none;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  transition: .2s; }
+
+.searchButton:hover {
+  background: #000; }
 
 .rightOptionsContainer {
   display: flex; }
@@ -95,6 +103,9 @@ body {
     margin-left: 15px; }
   .rightOption .twoLine {
     margin-bottom: 5px; }
+
+.rightOption:hover {
+  text-decoration: underline; }
 
 .selectBox {
   width: 160px;
@@ -180,14 +191,41 @@ label:hover span {
   background: #fff;
   color: #37B7FF; }
 
+.mainCategories {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; }
+  .mainCategories > li {
+    width: 72%;
+    border-bottom: 1px solid #2d2d2d;
+    padding: 18px 0 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative; }
+    .mainCategories > li .mainCategoriesElement {
+      padding-left: 10px; }
+  .mainCategories > li:hover {
+    border-bottom: 3px solid #5798AC;
+    height: 20px; }
+  .mainCategories svg {
+    position: absolute;
+    right: 0;
+    top: 36%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    transition: .2s; }
+  .mainCategories > li:hover svg {
+    transform: rotate(180deg) !important; }
+
 .categoryContainer {
   width: 335px;
   height: 535px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   background: #fff; }
-  .categoryContainer ol > li > ul {
-    display: none; }
   .categoryContainer h2 {
     color: #4DAA8E;
     text-transform: uppercase;
@@ -197,28 +235,57 @@ label:hover span {
     font-weight: 600; }
   .categoryContainer li {
     list-style-type: none; }
-
-.mainCategories {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
-  .mainCategories li {
-    width: 72%;
-    border-bottom: 1px solid #2d2d2d;
-    padding: 18px 0 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    position: relative; }
-    .mainCategories li .mainCategoriesElement {
-      padding-left: 10px; }
-  .mainCategories svg {
+  .categoryContainer ol > li > ul {
+    height: 495px;
+    width: 0;
+    overflow: hidden;
+    transition: .2s;
     position: absolute;
-    right: 0;
-    top: 36%;
-    transform: translateY(-50%);
-    font-size: 20px; }
+    display: flex;
+    background: #fff;
+    left: 241.2px;
+    border-bottom-right-radius: 20px;
+    padding-top: 40px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 0;
+    opacity: 0; }
+  .categoryContainer ol > li:hover > ul {
+    width: 813px;
+    padding-left: 47px;
+    opacity: 1; }
+  .categoryContainer ol > li:nth-of-type(1) > ul {
+    top: -79px; }
+  .categoryContainer ol > li:nth-of-type(2) > ul {
+    top: -135px; }
+  .categoryContainer ol > li:nth-of-type(3) > ul {
+    top: -191px; }
+  .categoryContainer ol > li:nth-of-type(4) > ul {
+    top: -247px; }
+  .categoryContainer ol > li:nth-of-type(5) > ul {
+    top: -303px; }
+  .categoryContainer ol > li:nth-of-type(6) > ul {
+    top: -359px; }
+  .categoryContainer ol > li:nth-of-type(7) > ul {
+    top: -415px; }
+  .categoryContainer ol > li > ul > li > ul > li {
+    font-weight: 300;
+    width: unset;
+    height: unset;
+    border: unset;
+    padding: 0;
+    font-size: 18px;
+    margin-top: 3px; }
+  .categoryContainer ol > li > ul > li > ul > li:first-of-type {
+    margin-top: 6px; }
+  .categoryContainer ol > li > ul > li {
+    border: unset;
+    padding: 0;
+    max-width: 220px;
+    margin-top: 10px; }
+  .categoryContainer ol > li > ul > li > a {
+    width: 220px;
+    font-size: 18px; }
 
 .banner {
   background: url(../../Assets/images/banner.png);
