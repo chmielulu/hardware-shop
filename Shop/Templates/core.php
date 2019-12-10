@@ -57,7 +57,7 @@
                         </label>
 
                         <label>
-                            <input type="radio" name="filters" class="filter" value="Podzespoły komp...">
+                            <input type="radio" name="filters" class="filter" value="Podzespoły komputerowe">
                             <span>Podzespoły komputerowe</span>
                         </label>
 
