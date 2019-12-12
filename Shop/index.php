@@ -1,6 +1,6 @@
 <?php
-    define("VERSION", "0.01 Beta");
     session_start();
+    $_SESSION['page'] = "Home";
 
     try{
         if(!file_exists("config.php")){

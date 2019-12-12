@@ -19,16 +19,15 @@
     define("DIR_ASSETS", "Assets/");
     define("DIR_IMAGES", DIR_ASSETS."images/");
     define("DIR_TEMPLATES", "Templates/");
+    define("PDIR_TEMPLATES", "../".DIR_TEMPLATES);
     define("DIR_TUTORIALS", DIR_IMAGES."Tutorials/");
-    define("TDIR_TUTORIALS", "./".DIR_IMAGES."Tutorials/");
+    define("PDIR_TUTORIALS", "../".DIR_IMAGES."Tutorials/");
     define("DIR_PRODUCTS", "Products/");
-    define("TDIR_PRODUCTS", "./".DIR_PRODUCTS);
+    define("PDIR_PRODUCTS", "../".DIR_PRODUCTS);
     define("DIR_PRODUCT_IMAGES", DIR_PRODUCTS."Images/");
-    define("TDIR_PRODUCT_IMAGES", "./".DIR_PRODUCTS);
+    define("PDIR_PRODUCT_IMAGES", "../".DIR_PRODUCTS);
     define("DIR_CSS", DIR_ASSETS."css/");
     define("DIR_SCRIPTS", DIR_ASSETS."scripts/");
-    define("TDIR_CSS", "./".DIR_CSS);
-    define("TDIR_SCRIPTS", "./".DIR_SCRIPTS);
-
-    loadFile("database.php");
+    define("PDIR_CSS", "../".DIR_CSS);
+    define("PDIR_SCRIPTS", "../".DIR_SCRIPTS);
 ?>

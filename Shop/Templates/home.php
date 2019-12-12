@@ -45,7 +45,7 @@
     <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
 
     <article class="discountProduct">
-        <div class="discountPhoto"><image src="./Products/<?php echo $id1 ?>/Photos/1.jpg"></div>
+        <div class="discountPhoto"><image src="Products/<?php echo $id1 ?>/Photos/1.jpg"></div>
         <h3 class="productName"><?php echo $listElementName[0] ?></h3>
         <div class="prizes">
             <p class="productPrice"><?php echo $listElementPrice[0] ?> zł</p>
@@ -54,7 +54,7 @@
     </article>
 
     <article class="discountProduct">
-        <div class="discountPhoto"><image src="./Products/<?php echo $id2 ?>/Photos/1.jpg"></div>
+        <div class="discountPhoto"><image src="Products/<?php echo $id2 ?>/Photos/1.jpg"></div>
         <h3 class="productName"><?php echo $listElementName[1] ?></h3>
         <div class="prizes">
             <p class="productPrice"><?php echo $listElementPrice[1] ?> zł</p>
@@ -63,7 +63,7 @@
     </article>
 
     <article class="discountProduct">
-        <div class="discountPhoto"><image src="./Products/<?php echo $id3 ?>/Photos/1.jpg"></div>
+        <div class="discountPhoto"><image src="Products/<?php echo $id3 ?>/Photos/1.jpg"></div>
         <h3 class="productName"><?php echo $listElementName[2] ?></h3>
         <div class="prizes">
             <p class="productPrice"><?php echo $listElementPrice[2] ?> zł</p>
@@ -72,7 +72,7 @@
     </article>
 
     <article class="discountProduct">
-        <div class="discountPhoto"><image src="./Products/<?php echo $id4 ?>/Photos/1.jpg"></div>
+        <div class="discountPhoto"><image src="Products/<?php echo $id4 ?>/Photos/1.jpg"></div>
         <h3 class="productName"><?php echo $listElementName[3] ?></h3>
         <div class="prizes">
             <p class="productPrice"><?php echo $listElementPrice[3] ?> zł</p>
@@ -81,7 +81,7 @@
     </article>
 
     <article class="discountProduct">
-        <div class="discountPhoto"><image src="./Products/<?php echo $id5 ?>/Photos/1.jpg"></div>
+        <div class="discountPhoto"><image src="Products/<?php echo $id5 ?>/Photos/1.jpg"></div>
         <h3 class="productName"><?php echo $listElementName[4] ?></h3>
         <div class="prizes">
             <p class="productPrice"><?php echo $listElementPrice[4] ?> zł</p>
@@ -94,17 +94,17 @@
 
 <section class="tutorials">
     <div class="tutorial">
-        <image src="<?php echo TDIR_TUTORIALS."monitory.jpg" ?>" alt="Jak wybrać odpowiedni monitor?">
+        <image src="<?php echo DIR_TUTORIALS."monitory.jpg" ?>" alt="Jak wybrać odpowiedni monitor?">
         <div class="tutorialBackground"><h4>Jak wybrać odpowiedni monitor?</h4></div>
     </div>
 
     <div class="tutorial">
-        <image src="<?php echo TDIR_TUTORIALS."procesory.jpg" ?>" alt="AMD czy Intel?">
+        <image src="<?php echo DIR_TUTORIALS."procesory.jpg" ?>" alt="AMD czy Intel?">
         <div class="tutorialBackground"><h4>AMD czy Intel?</h4></div>
     </div>
 
     <div class="tutorial">
-        <image src="<?php echo TDIR_TUTORIALS."myszki.jpg" ?>" alt="Jak wybrać mysz komputerową?">
+        <image src="<?php echo DIR_TUTORIALS."myszki.jpg" ?>" alt="Jak wybrać mysz komputerową?">
         <div class="tutorialBackground"><h4>Jak wybrać mysz komputerową?</h4></div>
     </div>
 </section>

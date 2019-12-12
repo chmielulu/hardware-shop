@@ -12,7 +12,28 @@
     <meta property="og:site_name" content="hardware.pl">
     <meta property="og:image" content="">
 
-    <link rel="stylesheet" href=<?php echo DIR_CSS."main.css" ?>>
+    <link rel="stylesheet" href="<?php if($_SESSION['page'] == "Home") echo DIR_CSS."core.css"; else if($_SESSION['page'] == "Products") echo PDIR_CSS."core.css"; ?>">
+    <link rel="stylesheet" href="<?php if($_SESSION['page'] == "Home") echo DIR_CSS."end.css"; else if($_SESSION['page'] == "Products") echo PDIR_CSS."end.css"; ?>">
+
+    <?php
+        $DIRECTION = [];
+
+        if($_SESSION['page'] == "Home"){
+            $DIRECTIONCSS[0] = DIR_CSS."home.css";
+            $DIRECTIONCSS[1] = DIR_CSS."homeFooter.css";
+            $DIRECTIONCATEGORIES = "Produkty/";
+        }
+
+        else if($_SESSION['page'] == "Products"){
+            $DIRECTIONCSS[0] = PDIR_CSS."products.css";
+            $DIRECTIONCSS[1] = PDIR_CSS."productsFooter.css";
+            $DIRECTIONCATEGORIES = "./";
+        }
+
+        foreach($DIRECTIONCSS as $item){
+            echo '<link rel="stylesheet" href="'.$item.'">';
+        }
+    ?>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Sunflower:500&display=swap&subset=latin-ext" rel="stylesheet">
     <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
 </head>
@@ -139,64 +160,64 @@
             <ol class="mainCategories">
                 <li><span class="mainCategoriesElement">Komputery</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
                     <ul>
-                        <li><a href="">Komputery PC</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Komputery%20PC">Komputery PC</a>
                             <ul>
-                                <li><a href="">Nasze komputery</a></li>
-                                <li><a href="">Komputery producentów</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Nasze%20komputery">Nasze komputery</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Komputery%20producentow">Komputery producentów</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Podzespoły komputerowe</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Podzespolty%20komputerowe">Podzespoły komputerowe</a>
                             <ul>
-                                <li><a href="">Procesory</a></li>
-                                <li><a href="">Karty graficzne</a></li>
-                                <li><a href="">Płyty główne</a></li>
-                                <li><a href="">Pamięci RAM</a></li>
-                                <li><a href="">Zasilacze</a></li>
-                                <li><a href="">Obudowy</a></li>
-                                <li><a href="">Chłodzenie komputerowe</a></li>
-                                <li><a href="">Dyski i nośniki danych</a></li>
-                                <li><a href="">Inne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Procesory">Procesory</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Karty%20graficzne">Karty graficzne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Plyty%20glowne">Płyty główne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Pamieci%20RAM">Pamięci RAM</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Zasilacze">Zasilacze</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Obudowy">Obudowy</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Chlodzenie%20komputerowe">Chłodzenie komputerowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Dyski%20i%20nosniki%20danych">Dyski i nośniki danych</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Inne%20Podzespoly%20komputerowe">Inne</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Oprogramowanie</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Oprogramowanie">Oprogramowanie</a>
                             <ul>
-                                <li><a href="">Systemy operacyjne</a></li>
-                                <li><a href="">Antywirusy</a></li>
-                                <li><a href="">Inne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Systemy%20operacyjne">Systemy operacyjne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Antywirusy">Antywirusy</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Inne%20Oprogramowanie">Inne</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Peryferia komputerowe</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Peryferia%20komputerowe">Peryferia komputerowe</a>
                             <ul>
-                                <li><a href="">Monitory</a></li>
-                                <li><a href="">Klawiatury komputerowe</a></li>
-                                <li><a href="">Myszki komputerowe</a></li>
-                                <li><a href="">Słuchawki</a></li>
-                                <li><a href="">Głośniki</a></li>
-                                <li><a href="">Mikrofony</a></li>
-                                <li><a href="">Drukarki i skanery</a></li>
-                                <li><a href="">Kamerki internetowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Monitory">Monitory</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Klawiatury%20komputerowe">Klawiatury komputerowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Myszki%20komputerowe">Myszki komputerowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Sluchawki">Słuchawki</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Glosniki">Głośniki</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Mikrofony">Mikrofony</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Drukarki%20i%20skanery">Drukarki i skanery</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Kamerki%20internetowe">Kamerki internetowe</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Serwery</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Serwery">Serwery</a>
                             <ul>
-                                <li><a href="">Serwery plików</a></li>
-                                <li><a href="">Dyski do serwerów</a></li>
-                                <li><a href="">Szafy Rack</a></li>
-                                <li><a href="">UPS</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Serwery%20plikow">Serwery plików</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Dyski%20do%20serwerow">Dyski do serwerów</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Szafy%20rack">Szafy Rack</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=UPS">UPS</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Serwis komputerowy</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Serwis%20komputerowy">Serwis komputerowy</a>
                             <ul>
-                                <li><a href="">Narzędzia</a></li>
-                                <li><a href="">Inne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Narzedzia">Narzędzia</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Inne%20Serwis%20komputerowy">Inne</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Sieci</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Sieci">Sieci</a>
                             <ul>
-                                <li><a href="">Routery</a></li>
-                                <li><a href="">Kable</a></li>
-                                <li><a href="">Switche</a></li>
-                                <li><a href="">Acces pointy</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Routery">Routery</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Kable">Kable</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Switche">Switche</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Acces%20pointy">Acces pointy</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -204,28 +225,28 @@
                 
                 <li><span class="mainCategoriesElement">Laptopy</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
                     <ul>
-                        <li><a href="">Laptopy, ultrabooki</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Laptopy%20ultrabooki">Laptopy, ultrabooki</a>
                             <ul>
-                                <li><a href="">Laptopy</a></li>
-                                <li><a href="">Ultrabooki</a></li>
-                                <li><a href="">Laptopy 2w1</a></li>
-                                <li><a href="">Laptopy dla profesjonalistów</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Laptopy">Laptopy</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Ultrabooki">Ultrabooki</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Laptopy%202w1">Laptopy 2w1</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Laptopy%20dla%20profesjonalistow">Laptopy dla profesjonalistów</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Przenoszenie i ochrona</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Przenoszenie%20i%20ochrona">Przenoszenie i ochrona</a>
                             <ul>
-                                <li><a href="">Torby i plecaki</a></li>
-                                <li><a href="">Etui do laptopów</a></li>
-                                <li><a href="">Linki zabezpieczające</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Torby%20i%20plecaki">Torby i plecaki</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Etui%20do%20laptopow">Etui do laptopów</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Linki%20zabezpieczajace">Linki zabezpieczające</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Akcesoria do laptopów</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Akcesoria%20do%20laptopow">Akcesoria do laptopów</a>
                             <ul>
-                                <li><a href="">Baterie do laptopów</a></li>
-                                <li><a href="">Dyski zewntętrzne</a></li>
-                                <li><a href="">Podstawki chłodzące</a></li>
-                                <li><a href="">Zasilacze do laptopów</a></li>
-                                <li><a href="">Inne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Baterie%20do%20laptopow">Baterie do laptopów</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Dyski%20zewnetrzne">Dyski zewntętrzne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Podstawki%20chlodzace">Podstawki chłodzące</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Zasilacze%20do%20laptopow">Zasilacze do laptopów</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Inne%20Akcesoria%20do%20laptopow">Inne</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -233,61 +254,61 @@
                 <li><span class="mainCategoriesElement">Kable i adaptery</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span></li>
                 <li><span class="mainCategoriesElement">Telefony</span> <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
                     <ul>
-                        <li><a href="">Smartfony</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Smartfony">Smartfony</a>
                             <ul>
-                                <li><a href="">Android</a></li>
-                                <li><a href="">iOS</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Android">Android</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=iOS">iOS</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="">Telefony komórkowe</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Telefony%20komorkowe">Telefony komórkowe</a>
                             <ul>
-                                <li><a href="">Dla aktywnych</a></li>
-                                <li><a href="">Dla seniora</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Dla%20aktywnych">Dla aktywnych</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Dla%20seniora">Dla seniora</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="">Telefony stacjonarne</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Telefony%20stacjonarne">Telefony stacjonarne</a>
                             <ul>
-                                <li><a href="">Telefony przewodowe</a></li>
-                                <li><a href="">Telefony bezprzewodowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Telefony%20przewodowe">Telefony przewodowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Telefony%20bezprzewodowe">Telefony bezprzewodowe</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="">Zasilanie</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Zasilanie">Zasilanie</a>
                             <ul>
-                                <li><a href="">Baterie do telefonów</a></li>
-                                <li><a href="">Ładowarki samochodowe</a></li>
-                                <li><a href="">Ładowarki sieciowe</a></li>
-                                <li><a href="">Powerbanki</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Baterie%20do%20telefonow">Baterie do telefonów</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Ladowarki%20samochodowe">Ładowarki samochodowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Ladowarki%20sieciowe">Ładowarki sieciowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Powerbanki">Powerbanki</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="">Smartwatche, sport</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Smartwatche%20sport">Smartwatche, sport</a>
                             <ul>
-                                <li><a href="">Smartwatche</a></li>
-                                <li><a href="">Zegarki sportowe</a></li>
-                                <li><a href="">Smartbandy</a></li>
-                                <li><a href="">Akcesoria do smartwatchy</a></li>
-                                <li><a href="">Pulsometry i krokomierze</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Smartwatche">Smartwatche</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Zegarki%20sportowe">Zegarki sportowe</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Smartbandy">Smartbandy</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Akcesoria%20do%20smartwatchy">Akcesoria do smartwatchy</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Pulsometry%20i%20krokomierze">Pulsometry i krokomierze</a></li>
                             </ul>
                         </li>
                         
-                        <li><a href="">Ochrona</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Ochrona">Ochrona</a>
                             <ul>
-                                <li><a href="">Etui i pokrowce</a></li>
-                                <li><a href="">Folie i szkła ochronne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Etui%20i%20pokrowce">Etui i pokrowce</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Folie%20i%20szkla%20ochronne">Folie i szkła ochronne</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="">Pozostałe akcesoria</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Pozostale%20akcesoria">Pozostałe akcesoria</a>
                             <ul>
-                                <li><a href="">Gogle VR</a></li>
-                                <li><a href="">Karty pamięci microSD</a></li>
-                                <li><a href="">Rysiki</a></li>
-                                <li><a href="">Selfie stick</a></li>
-                                <li><a href="">Uchwyty do telefonów</a></li>
-                                <li><a href="">Inne</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Gogle%20VR">Gogle VR</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Karty%20pamieci%20microSD">Karty pamięci microSD</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Rysiki">Rysiki</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Selfie%20stick">Selfie stick</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Uchwyty%20do%20telefonow">Uchwyty do telefonów</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Inne%20Pozostale%20akcesoria">Inne</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -301,16 +322,55 @@
 
     <main>
         <?php
-            loadFile(DIR_TEMPLATES."home.php");
+            if($_SESSION['page'] == 'Home') loadFile(DIR_TEMPLATES."home.php");
         ?>
     </main>
 
     <footer>
         <?php
-            loadFile(DIR_TEMPLATES."homeFooter.php");
+            if($_SESSION['page'] == 'Home') loadFile(DIR_TEMPLATES."homeFooter.php");
         ?>
+
+        <section class="end">
+            <div class="yourAccount first">
+                <h4>Twoje konto</h4>
+                    <p><a href="">Zamówienia w realizacji</a></p>
+                    <p><a href="">Produkty do oceny</a></p>
+                    <p><a href="">Modyfikacja zamówienia</a></p>
+            </div>
+            <div class="legalInformation first">
+                <h4>Informacje prawne</h4>
+                    <p><a href="">Regulamin sklepu</a></p>
+                    <p><a href="">Produkty do oceny</a></p>
+                    <p><a href="">Modyfikacja zamówienia</a></p>
+            </div>
+            <div class="shopAbout first">
+                <h4>Hardware.pl</h4>
+                    <p><a href="">Zamówienia w realizacji</a></p>
+                    <p><a href="">Produkty do oceny</a></p>
+                    <p><a href="">Modyfikacja zamówienia</a></p>
+            </div>
+            <div class="answers">
+                <h4>Masz pytania?</h4>
+                    <p><a href="">Zamówienia w realizacji</a></p>
+                    <p><a href="">Produkty do oceny</a></p>
+                    <p><a href="">Modyfikacja zamówienia</a></p>
+            </div>
+            <div class="socialMedia">
+                <h4>Social media</h4>
+                <div class="icons">
+                    <p><a href="" class="facebook"><span class="iconify" data-icon="ps:facebook-alt" data-inline="false"></span></a></p>
+                    <p><a href="" class="instagram"><span class="iconify" data-icon="ant-design:instagram-fill" data-inline="false"></span></a></p>
+                    <p><a href="" class="youtube"><span class="iconify" data-icon="fa:youtube-play" data-inline="false"></span></a></p>
+                </div>
+            </div>
+        </section>
     </footer>
 
-    <script type="text/javascript" src="<?php echo TDIR_SCRIPTS."core.js"?>"></script>
+    <script type="text/javascript" src="<?php if($_SESSION['page'] == "Home") echo DIR_SCRIPTS."core.js"; else if($_SESSION['page'] == "Products") echo PDIR_SCRIPTS."core.js"; ?>"></script>
 </body>
 </html>
+
+<?php
+    unset($_SESSION['page']);
+?>

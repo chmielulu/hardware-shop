@@ -1,69 +1,361 @@
-/*
-Error: Undefined variable: "$darkgray".
-        on line 26 of C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\core.scss
+body {
+  background: url(.././../Assets/images/background.png);
+  font-family: 'Lato'; }
 
-21:     width: 100%;
-22:     height: 95px;
-23:     display: flex;
-24:     justify-content: center;
-25:     align-items: center;
-26:     border-bottom: 1px solid $darkgray;
-27:     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-28:     z-index: 10;
-29:     position: relative;
-30: }
-31: 
+* {
+  margin: 0;
+  padding: 0; }
 
-Backtrace:
-C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\core.scss:26
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/list_literal.rb:75:in `block in _perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/list_literal.rb:75:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/list_literal.rb:75:in `_perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:161:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
-C:/Program Files (x86)/Koala/bin/sass:22:in `load'
-C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$darkgray\".\A         on line 26 of C:\Users\jakub\Documents\GitHub\Hardware-shop\Shop\Assets\sass\core.scss\A \A 21:     width: 100%;\A 22:     height: 95px;\A 23:     display: flex;\A 24:     justify-content: center;\A 25:     align-items: center;\A 26:     border-bottom: 1px solid $darkgray;\A 27:     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);\A 28:     z-index: 10;\A 29:     position: relative;\A 30: }\A 31: "; }
+*:focus {
+  outline: none; }
+
+a {
+  text-decoration: none;
+  color: #2d2d2d; }
+
+.header {
+  height: 95px; }
+
+.navbar {
+  background: #fff;
+  width: 100%;
+  height: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #2d2d2d;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  position: fixed; }
+
+.navbarElement {
+  margin-right: 50px; }
+
+.companyLogo a {
+  font-family: 'Sunflower';
+  font-weight: 500;
+  font-size: 48px;
+  text-decoration: none;
+  background: linear-gradient(to right, #002c6d 0%, #7CB1FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+.searchContainer {
+  width: 420px;
+  height: 45px;
+  border-radius: 30px;
+  border: 1px solid #2d2d2d; }
+  .searchContainer form {
+    width: 420px;
+    height: 45px;
+    display: flex; }
+
+.searchText {
+  width: 200px;
+  height: 45px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: 0;
+  outline: 0;
+  color: #2d2d2d;
+  font-size: 12px;
+  padding-left: 30px; }
+
+.searchText::placeholder {
+  color: #2d2d2d; }
+
+.searchButton {
+  width: 60px;
+  height: 45px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border: 0;
+  background: #2d2d2d;
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .2s; }
+
+.searchButton:hover {
+  background: #000; }
+
+.rightOptionsContainer {
+  display: flex; }
+
+.rightOption {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-right: 30px;
+  cursor: pointer; }
+  .rightOption span {
+    display: block;
+    font-size: 14px;
+    text-align: center; }
+  .rightOption .rightOptionIcon {
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px; }
+  .rightOption .twoLine {
+    margin-bottom: 5px; }
+
+.rightOption:hover {
+  text-decoration: underline; }
+
+.rightOption:nth-of-type(2) {
+  height: 95px;
+  padding: 0 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: .2s;
+  position: relative;
+  transition: .2s;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  cursor: default; }
+
+.contactInfoContainer {
+  position: absolute;
+  height: 0px;
+  width: 280px;
+  top: 95px;
+  left: -1px;
+  background: #fff;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity .2s;
+  overflow: hidden;
+  height: 200px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #C9C9C9;
+  opacity: 0;
+  transform: scale(0); }
+  .contactInfoContainer .contactPhone, .contactInfoContainer .contactMail {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center; }
+  .contactInfoContainer .contactMail {
+    margin-top: 30px; }
+  .contactInfoContainer .contactText {
+    margin-left: 20px; }
+    .contactInfoContainer .contactText span:first-of-type {
+      font-size: 20px;
+      text-align: left; }
+    .contactInfoContainer .contactText span:last-of-type {
+      font-size: 12px;
+      text-align: left; }
+  .contactInfoContainer svg {
+    font-size: 30px;
+    margin-left: 20px; }
+
+.rightOption:nth-of-type(2):hover {
+  text-decoration: none;
+  border: 1px solid #C9C9C9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+
+.rightOption:nth-of-type(2):hover::before {
+  width: 100%;
+  bottom: -1.5px;
+  height: 3px;
+  background: #fff;
+  content: "";
+  position: absolute;
+  left: 0;
+  z-index: 5; }
+
+.rightOption:nth-of-type(2):hover .contactInfoContainer {
+  opacity: 1;
+  transform: scale(1); }
+
+.selectBox {
+  width: 160px;
+  height: 45px;
+  border-left: 1px solid #2d2d2d;
+  position: relative; }
+
+.selectButton {
+  position: relative;
+  display: flex;
+  height: 45px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px; }
+  .selectButton svg {
+    color: #2d2d2d;
+    font-size: 10px;
+    transition: .2s; }
+
+#optionViewButton {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  opacity: 0;
+  cursor: pointer; }
+
+.selectedValue {
+  margin-left: 10px; }
+
+.options {
+  width: 175px;
+  height: 0;
+  transition: .2s;
+  background: #f8f8f8;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  border-radius: 2px;
+  margin-top: 5px;
+  overflow: hidden;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25); }
+
+label {
+  font-size: 14px;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center; }
+  label input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer; }
+  label span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s; }
+
+label:hover span {
+  background: #fff; }
+
+#optionViewButton:checked ~ .options {
+  height: 245px; }
+
+#optionViewButton:checked + .selectButton svg {
+  transform: rotate(180deg) !important; }
+
+.filter:checked ~ span {
+  background: #fff;
+  color: #37B7FF; }
+
+.mainCategories {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; }
+  .mainCategories > li {
+    width: 72%;
+    border-bottom: 1px solid #2d2d2d;
+    padding: 18px 0 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative; }
+    .mainCategories > li .mainCategoriesElement {
+      padding-left: 10px; }
+  .mainCategories > li:hover {
+    border-bottom: 3px solid #5798AC;
+    height: 20px; }
+  .mainCategories svg {
+    position: absolute;
+    right: 0;
+    top: 36%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    transition: .2s; }
+  .mainCategories > li:hover svg {
+    transform: rotate(180deg) !important; }
+
+.categoryContainer {
+  width: 335px;
+  height: 535px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: #fff;
+  padding-top: 95px; }
+  .categoryContainer h2 {
+    color: #4DAA8E;
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 30px;
+    font-weight: 600; }
+  .categoryContainer li {
+    list-style-type: none; }
+  .categoryContainer ol > li > ul {
+    height: 495px;
+    width: 0;
+    overflow: hidden;
+    transition: .2s;
+    position: absolute;
+    display: flex;
+    background: #fff;
+    left: 241.2px;
+    border-bottom-right-radius: 20px;
+    padding-top: 40px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 0;
+    opacity: 0; }
+  .categoryContainer ol > li:hover > ul {
+    width: 813px;
+    padding-left: 47px;
+    opacity: 1; }
+  .categoryContainer ol > li:nth-of-type(1) > ul {
+    top: -79px; }
+  .categoryContainer ol > li:nth-of-type(2) > ul {
+    top: -135px; }
+  .categoryContainer ol > li:nth-of-type(3) > ul {
+    top: -191px; }
+  .categoryContainer ol > li:nth-of-type(4) > ul {
+    top: -247px; }
+  .categoryContainer ol > li:nth-of-type(5) > ul {
+    top: -303px; }
+  .categoryContainer ol > li:nth-of-type(6) > ul {
+    top: -359px; }
+  .categoryContainer ol > li:nth-of-type(7) > ul {
+    top: -415px; }
+  .categoryContainer ol > li > ul > li > ul > li {
+    font-weight: 300;
+    width: unset;
+    height: unset;
+    border: unset;
+    padding: 0;
+    font-size: 18px;
+    margin-top: 3px; }
+  .categoryContainer ol > li > ul > li > ul > li:first-of-type {
+    margin-top: 6px; }
+  .categoryContainer ol > li > ul > li {
+    border: unset;
+    padding: 0;
+    max-width: 220px;
+    margin-top: 10px; }
+  .categoryContainer ol > li > ul > li > a {
+    width: 220px;
+    font-size: 18px; }
+
+/*# sourceMappingURL=core.css.map */
