@@ -28,6 +28,8 @@
             $DIRECTIONCSS[0] = PDIR_CSS."products.css";
             $DIRECTIONCSS[1] = PDIR_CSS."productsFooter.css";
             $DIRECTIONCATEGORIES = "./";
+
+            $DIRECTIONJS[0] = PDIR_SCRIPTS."products.js";
         }
 
         foreach($DIRECTIONCSS as $item){
@@ -257,11 +259,11 @@
                         <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Smartfony">Smartfony</a>
                             <ul>
                                 <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Android">Android</a></li>
-                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=iOS">iOS</a></li>
+                                <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Smartfony%20iOS">iOS</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Telefony%20komorkowe">Telefony komórkowe</a>
+                        <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Telefony%20komórkowe">Telefony komórkowe</a>
                             <ul>
                                 <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Dla%20aktywnych">Dla aktywnych</a></li>
                                 <li><a href="<?php echo $DIRECTIONCATEGORIES; ?>?kategoria=Dla%20seniora">Dla seniora</a></li>
@@ -323,12 +325,14 @@
     <main>
         <?php
             if($_SESSION['page'] == 'Home') loadFile(DIR_TEMPLATES."home.php");
+            else if($_SESSION['page'] == 'Products') loadFIle(PDIR_TEMPLATES."products.php");
         ?>
     </main>
 
     <footer>
         <?php
             if($_SESSION['page'] == 'Home') loadFile(DIR_TEMPLATES."homeFooter.php");
+            else if($_SESSION['page'] == 'Products') loadFIle(PDIR_TEMPLATES."productsFooter.php");
         ?>
 
         <section class="end">
@@ -368,9 +372,8 @@
     </footer>
 
     <script type="text/javascript" src="<?php if($_SESSION['page'] == "Home") echo DIR_SCRIPTS."core.js"; else if($_SESSION['page'] == "Products") echo PDIR_SCRIPTS."core.js"; ?>"></script>
+    <?php
+        if($_SESSION['page'] == "Products") echo '<script type="text/javascript" src="'.$DIRECTIONJS[0].'"></script>';
+    ?>
 </body>
 </html>
-
-<?php
-    unset($_SESSION['page']);
-?>

@@ -1,0 +1,30 @@
+.productsFooter {
+  position: relative;
+  width: 90%;
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 50px 5% 0 5%;
+  padding-bottom: 60px; }
+  .productsFooter h4 {
+    font-size: 18px;
+    color: #2d2d2d;
+    margin-top: 30px; }
+  .productsFooter h4:nth-of-type(1) {
+    margin-top: 0; }
+  .productsFooter p {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 10px; }
+
+.productsFooterLine {
+  width: 95%;
+  margin: auto;
+  background: #c1c1c1;
+  height: 1px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0px; }
+
+/*# sourceMappingURL=productsFooter.css.map */

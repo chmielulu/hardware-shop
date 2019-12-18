@@ -222,34 +222,32 @@ a {
   margin-top: 5px;
   overflow: hidden;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25); }
-
-label {
-  font-size: 14px;
-  width: 100%;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center; }
-  label input {
+  .options label {
+    font-size: 14px;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer; }
-  label span {
-    width: 100%;
-    height: 100%;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: .2s; }
-
-label:hover span {
-  background: #fff; }
+    position: relative;
+    text-align: center; }
+    .options label input {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      cursor: pointer; }
+    .options label span {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .2s; }
+  .options label:hover span {
+    background: #fff; }
 
 #optionViewButton:checked ~ .options {
   height: 245px; }

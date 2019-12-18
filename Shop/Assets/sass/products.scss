@@ -1,0 +1,479 @@
+@import 'colors';
+
+.categoryContainer{
+    height: 60px;
+    width: 210px;
+    transition: .2s;
+    position: relative;
+    z-index: 3;
+    margin-left: 62.5px;
+    
+    h2{
+        color: $darkgray;
+        transition: .2s;
+        padding-top: 15px;
+        cursor: default;
+    }
+}
+
+.categoryContainer:hover{
+    height: 535px;
+    width: 335px;
+    margin-left: 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+    h2{
+        color: $green;
+        padding-top: 30px;
+    }
+}
+
+.mainCategories{
+    display: none;
+    opacity: 0;
+    transition: .2s;
+}
+
+.categoryContainer:hover .mainCategories{
+    display: flex;
+    opacity: 1;
+}
+
+.asideFiltersContainer{
+    width: 335px;
+    background: $white;
+    margin-top: 95px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 180px;
+    padding-left: 25px;
+    margin-bottom: 30px;
+    position: relative;
+
+    h3{
+        font-size: 24px;
+        color: $moredarkgray;
+        font-weight: 300;
+    }
+
+    p{
+        font-size: 14px;
+        font-weight: 400;
+        color: $lessdarkgray;
+    }
+
+    > form > input{
+        position: fixed;
+        left: 69.5px;
+        width: 200px;
+        height: 45px;
+        border-radius: 32px;
+        bottom: 10px;
+        border: 2px solid $blue;
+        color: $morelightgray;
+        background: #fff;
+        font-family: 'Lato';
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    > form > input.unfixed{
+        position: absolute;
+        bottom: 100px;
+    }
+}
+
+.asideFilter{
+    margin-top: 30px;
+
+    label{
+        font-size: 18px;
+        font-weight: 300;
+        display: flex;
+        align-items: center;
+
+        .checkbox{
+            width: 18px;
+            height: 18px;
+            border: 0.5px solid $darkgray;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+
+            svg{
+                position: absolute;
+                left: 45%;
+                top: 55%;
+                color: $white;
+                transform: translate(-50%, -50%)!important;
+                opacity: 0;
+                transition: .2s;
+                z-index: 4;
+                background: $lightblue;
+            }
+            
+            
+            input{
+                width: 19px;
+                height: 19px;
+                background: $white;
+                position: absolute;
+                opacity: 0;
+                left: 0;
+                top: 0;
+                z-index: 5;
+                cursor: pointer;
+            }
+
+            input:checked + svg{
+                opacity: 1;
+            }
+        }
+
+        span{
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+.asideFilter:nth-of-type(1){
+    margin-top: 0;
+}
+
+.asideFilterItem:nth-of-type(1){
+    margin-top: 15px;
+}
+
+.asideFilterItem{
+    margin-top: 5px;
+}
+
+.FilterItemMore{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: $darkblue;
+    cursor: pointer;
+
+    svg{
+        margin-right: 5px;
+    }
+}
+
+main{
+    display: flex;
+}
+
+.productsListContainer{
+    background: $white;
+    width: 78%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    padding-top: 10px;
+}
+
+.productsListHeader{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    align-items: center;
+
+    .productsListHeadline{
+        h2{
+            font-size: 36px;
+            font-weight: 300;
+        }
+
+        margin-left: 6%;
+    }
+
+}
+
+.strapContainer > span{
+    font-weight: 400;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.strapContainer{
+    display: flex;
+    align-items: center;
+}
+
+.prizeSetContainer{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.strap{
+    width: 360px;
+    position: relative;
+
+    
+    .line{
+        width: 360px;
+        height: 5px;
+        background: linear-gradient(to right, #0092D0 40%, #FF00E5 100%);
+    }
+
+    .wheel{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid $blue;
+        top: 50%;
+        transform: translateY(-50%);
+        background: $white;
+    }
+
+    .wheel:nth-of-type(1){
+        left: 0;
+    }
+
+    .wheel:nth-of-type(2){
+        right: 0;
+    }
+}
+
+.priceRange{
+    display: flex;
+    margin-top: 20px;
+    width: 360px;
+    margin-left: 92px;
+    align-items: center;
+    position: relative;
+    
+    .from, .to{
+        width: 78px;
+        height: 28px;
+        border: 1px solid $darkgray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 20px;
+        -moz-appearance:textfield;
+        font-family: 'Lato';
+    }
+
+    .from::-webkit-outer-spin-button,
+    .to::-webkit-outer-spin-button,
+    .from::-webkit-inner-spin-button,
+    .to::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    span{
+        font-size: 18px;
+    }
+
+    .line{
+        height: 1px;
+        width: 25px;
+        background: $darkgray;
+        margin: 0 25px;
+    }
+
+    input.priceSubmit{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 82px;
+        height: 30px;
+        outline: none;
+        border: 2px solid $darkblue;
+        background: $white;
+        font-family: 'Lato';
+        color: $darkgray;
+        font-weight: 400;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 20px;
+    }
+}
+
+.sortingContainer{
+    width: 190px;
+    height: 35px;
+    border: 1px solid $darkgray;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin: auto;
+    cursor: pointer;
+
+    .selectedValueContainer{
+        display: flex;
+        align-items: center;
+    }
+
+    .selectedValue{
+        margin-right: 5px;
+    }
+}
+
+
+.productsList{
+    width: 95%;
+    margin: auto;
+}
+
+article{
+    width: 100%;
+    border-bottom: 1px solid $lightgray;
+    display: flex;
+    height: 315px;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 50px;
+}
+
+article:nth-of-type(1){
+    margin-top: 80px;
+}
+
+.productPhoto{
+    width: 190px;
+    height: 250px;
+    margin-left: 5%;
+
+    img{
+        width: 190px;
+        height: auto;
+    }
+}
+
+.productDescription{
+    margin-top: 15px;
+    margin-left: 50px;
+
+    h2{
+        font-size: 24px;
+        color: $black;
+    }
+
+    h2:hover{
+        text-decoration: underline;
+    }
+}
+
+.productAttribute{
+    p{
+        margin-top: 7px;
+        font-size: 18px;
+        font-weight: 300;
+    }
+}
+
+.productID{
+    span{
+        font-size: 18px;
+        font-weight: 300;
+    }
+}
+
+.productRecommendation{
+    margin: 15px 0;
+    display: flex;
+}
+
+.stars{
+    color: $gold;
+    font-size: 25px;
+}
+
+.quantityReviews{
+    height: 24px;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+    color: $gold;
+    margin: 0 15px;
+    font-weight: 600;
+}
+
+.quantityOrders{
+    font-size: 18px;
+    color: $darkblue;
+    display: flex;
+    height: 24px;
+    align-items: center;
+    font-weight: 600;
+}
+
+.basicSpecificationItem{
+    display: flex;
+
+    h3{
+        font-size: 18px;
+        font-weight: 300;
+        color: $black;
+    }
+
+    p{
+        font-size: 18px;
+        font-weight: 400;
+        color: $black;
+        margin-left: 5px;
+    }
+}
+
+.prize{
+    font-size: 36px;
+    color: $darkgray;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 33px;
+}
+
+.productPrize button{
+    font-size: 18px;
+    color: #fff;
+    font-family: 'Lato';
+    background: $productListButton;
+    border: unset;
+    border-radius: 44px;
+    width: 188px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.productPrize button:hover{
+    background: #11A3E1;
+}
+
+.productPrize{
+    position: absolute;
+    right: 50px;
+    top: 47%;
+    transform: translateY(-50%);
+    line-height: 1;
+}
+
+.discountPrize{
+    font-size: 22px;
+    text-align: center;
+    text-decoration: line-through;
+    font-weight: 600;
+    color: $oldPrize;
+}
