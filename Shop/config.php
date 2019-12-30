@@ -30,4 +30,5 @@
     define("DIR_SCRIPTS", DIR_ASSETS."scripts/");
     define("PDIR_CSS", "../".DIR_CSS);
     define("PDIR_SCRIPTS", "../".DIR_SCRIPTS);
+    define("SERVER", 'localhost/');
 ?>

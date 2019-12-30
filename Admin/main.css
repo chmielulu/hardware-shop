@@ -1,0 +1,62 @@
+a{
+    display: block;
+    color: lightgreen;
+    margin-top: 10px;
+}
+
+form:nth-of-type(2){
+    margin-top: 100px;
+}
+
+h1, h2, h3, h4, h5, h6, h7{
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 90vh;
+    background: #2d2d2d;
+    color: #fff;
+    font-family: 'Leelawadee';
+}
+
+input{
+    font-family: 'Leelawadee';
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="number"]{
+    padding: 10px 30px;
+    font-size: 18px;
+}
+
+select{
+    font-family: 'Leelawadee';
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+form{
+    margin-top: 50px;
+}
+
+.info{
+    color: #e02f2f;
+    font-size: 24px;
+}
+
+b{
+    color: #7ee95d;
+}
+
+h3{
+    margin-top: 10px;
+}

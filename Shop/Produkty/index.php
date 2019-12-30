@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $_SESSION['page'] = "Products";
 
@@ -21,5 +20,4 @@ catch(Exception $e) {
 
 loadFile("../database.php");
 loadFile(PDIR_TEMPLATES."core.php");
-
 ?>

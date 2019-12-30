@@ -9,7 +9,7 @@
     $id4 = 4;
     $id5 = 5;
 
-    try{
+    /*try{
         $queryDiscount = $query->prepare('SELECT Name, Price, Discount FROM products WHERE ID = :id1 OR ID = :id2 OR ID = :id3 OR ID = :id4 OR ID = :id5');
         $queryDiscount->bindValue(':id1', $id1, PDO::PARAM_INT);
         $queryDiscount->bindValue(':id2', $id2, PDO::PARAM_INT);
@@ -32,7 +32,7 @@
         $listElementPrice[$i] = $item["Price"];
         $listElementDiscount[$i] = $item["Discount"];
         $i++;
-    }
+    }*/
 ?>
 
 <section class="bannerContainer">
@@ -44,7 +44,7 @@
 
     <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
 
-    <article class="discountProduct">
+    <!--<article class="discountProduct">
         <div class="discountPhoto"><image src="Products/<?php echo $id1 ?>/Photos/1.jpg"></div>
         <h3 class="productName"><?php echo $listElementName[0] ?></h3>
         <div class="prizes">
@@ -87,7 +87,9 @@
             <p class="productPrice"><?php echo $listElementPrice[4] ?> zł</p>
             <p class="productPrice"><?php echo $listElementDiscount[4] ?> zł</p>
         </div>
-    </article>
+    </article>-->
+
+    <span>W trakcie pracy...</span>
 
     <span class="iconify" data-icon="dashicons:arrow-right-alt2" data-inline="false"></span>
 </section>

@@ -1,242 +1,111 @@
 <?php
     $category = $_GET['kategoria'];
-    $quantity = 91;
+    if($category == 'Smartfony iOS') $categoryID = 38;
+    else if($category == 'Komputery producentow') $categoryID = 3;
+    else{
+        echo '<div class="error">'.PHP_EOL;
+            echo '<span>Wystąpił błąd! Przepraszamy za utrudnienia.</span>'.PHP_EOL;
+            echo '<a href="http://localhost/Shop" class="errorBack">Powrót do strony głównej</a>'.PHP_EOL;
+        echo '</div>';
+        exit();
+    }
 
-    /*try{
+    try{
         $PDO = new DatabaseConnect;
         $query = $PDO->getPDO();
 
-        $queryProducts = $query->prepare('SELECT ID, Name, Attribute, Price, Discount, Quantity, Sorting FROM products WHERE Category = :category');
-        $queryProducts->bindValue(':category', $category, PDO::PARAM_STR);
+        $queryProducts = $query->prepare('SELECT products.product_id, products.product_name, products.product_info, products.product_price, products.product_discount, products.product_ranking FROM products WHERE products.sub_category_id = :category ORDER BY products.product_ranking');
+        $queryProducts->bindValue(':category', $categoryID, PDO::PARAM_STR);
         $queryProducts->execute();
+
+        $products = $queryProducts->fetchAll();
+
+        $i = 0;
+        foreach($products as $item){
+            $queryBasicSpecs = $query->prepare('SELECT DISTINCT attributes.attribute_name, product_attributes.product_attribute_value FROM basic_attributes, product_attributes, sub_category_attributes, attributes WHERE basic_attributes.product_attribute_id = product_attributes.product_attribute_id AND product_attributes.sub_category_attribute_id = sub_category_attributes.sub_category_attribute_id AND sub_category_attributes.attribute_id = attributes.attribute_id AND basic_attributes.product_id = :product_id');
+            $queryBasicSpecs->bindValue(':product_id', $item['product_id'], PDO::PARAM_INT);
+            $queryBasicSpecs->execute();
+
+            $basicSpecs[$i] = $queryBasicSpecs->fetchAll();
+            $i++;
+        }
+
+        $querySubCategoryAttributes = $query->prepare('SELECT DISTINCT attributes.attribute_name, sub_category_attribute_id FROM sub_category_attributes, attributes WHERE sub_category_attributes.attribute_id = attributes.attribute_id AND sub_category_attributes.sub_category_id = :sub_category_id ORDER BY sub_category_attributes.sub_category_attribute_order LIMIT 10');
+        $querySubCategoryAttributes->bindValue(':sub_category_id', $categoryID, PDO::PARAM_INT);
+        $querySubCategoryAttributes->execute();
+
+        $subCategoryAttributes = $querySubCategoryAttributes->fetchAll();
+
+        $i = 0;
+
+        foreach($subCategoryAttributes as $item){
+            $querySubCategoryAttributesValues = $query->prepare('SELECT DISTINCT product_attributes.product_attribute_value, sub_category_attributes.sub_category_attribute_id FROM product_attributes, sub_category_attributes WHERE product_attributes.sub_category_attribute_id = sub_category_attributes.sub_category_attribute_id AND sub_category_attributes.sub_category_id = :sub_category_id AND sub_category_attributes.sub_category_attribute_id = :sub_category_attribute_id LIMIT 5');
+            $querySubCategoryAttributesValues->bindValue(':sub_category_id', $categoryID, PDO::PARAM_INT);
+            $querySubCategoryAttributesValues->bindValue(':sub_category_attribute_id', $item['sub_category_attribute_id'], PDO::PARAM_INT);
+            $querySubCategoryAttributesValues->execute();
+
+            $subCategoryAttributesValues[$i] = $querySubCategoryAttributesValues->fetchAll();
+
+            $x = 0;
+            foreach($subCategoryAttributesValues[$i] as $item) {
+                $queryCountOfAttributesValues = $query->prepare('SELECT COUNT(product_attribute_value) FROM product_attributes, sub_category_attributes WHERE product_attribute_value LIKE :product_attribute_value AND product_attributes.sub_category_attribute_id = sub_category_attributes.sub_category_attribute_id AND sub_category_attributes.sub_category_attribute_id = :sub_category_attribute_id');
+                $queryCountOfAttributesValues->bindValue(':product_attribute_value', $item['product_attribute_value'], PDO::PARAM_STR);
+                $queryCountOfAttributesValues->bindValue(':sub_category_attribute_id', $item['sub_category_attribute_id'], PDO::PARAM_STR);
+                $queryCountOfAttributesValues->execute();
+
+                $countOfAttributesValues[$i][$x] = $queryCountOfAttributesValues->fetchAll();
+                $x++;
+            }
+            $i++;
+        }
+
+        $queryCountOfProducts = $query->prepare('SELECT COUNT(products.product_id) FROM products WHERE products.sub_category_id = :sub_category_id');
+        $queryCountOfProducts->bindValue(':sub_category_id', $categoryID, PDO::PARAM_INT);
+        $queryCountOfProducts->execute();
+
+        $countOfProducts = $queryCountOfProducts->fetch();
+
+        $quantity = $countOfProducts['COUNT(products.product_id)'];
     }
 
-    catch(PDOException $e){
+    catch(Exception $e){
         echo $e->getMessage();
         exit();
     }
 
-    $productsList = $queryProducts->fetchAll();*/
+    $productsList = $queryProducts->fetchAll();
+
 ?>
 <aside>
     <div class="asideFiltersContainer">
         <form>
-            <div class="asideFilter">
-                <h3>Producenci</h3>
-                <p>Sortuj A-Z</p>
 
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Apple"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Apple (98)</span>
-                    </label>
-                </div>
+            <?php
 
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Samsung"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Samsung (0)</span>
-                    </label>
-                </div>
+                $i = 0;$x = 0;
+                foreach ($subCategoryAttributes as $subCatAttributes){
+                    $x = 0;
+                    echo '<div class="asideFilter">';
+                        echo '<h3>'.$subCatAttributes['attribute_name'].'</h3>';
+                        echo '<p>Sortuj A-Z</p>';
 
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Huawei"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Huawei (98)</span>
-                    </label>
-                </div>
+                        foreach ($subCategoryAttributesValues[$i] as $attributesValue){
+                            echo '<div class="asideFilterItem">';
+                                foreach($countOfAttributesValues[$i][$x] as $countOfValues){
+                                    echo '<label>';
+                                    echo '<div class="checkbox"><input type="checkbox" value="'.$attributesValue['product_attribute_value'].'"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>';
+                                    echo '<span>'.$attributesValue['product_attribute_value'].' ('.$countOfValues['COUNT(product_attribute_value)'].')</span>';
+                                    echo '</label>';
+                                }
+                            echo '</div>';
+                            $x++;
+                        }
 
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Xiaomi"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Xiaomi (0)</span>
-                    </label>
-                </div>
-
-                <span class="FilterItemMore"><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> Pokaż więcej</span>
-            </div>
-
-            <div class="asideFilter">
-                <h3>System operacyjny</h3>
-                <p>Sortuj A-Z</p>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="iOS"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>iOS (98)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Android"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Android (0)</span>
-                    </label>
-                </div>
-
-                <span class="FilterItemMore"><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> Pokaż więcej</span>
-            </div>
-
-            <div class="asideFilter">
-                <h3>Kolor</h3>
-                <p>Sortuj A-Z</p>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Srebrny"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Srebrny (21)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Czarny"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Czarny (18)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Bialy"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Biały (17)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Zloty"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Złoty (12)</span>
-                    </label>
-                </div>
-
-                <span class="FilterItemMore"><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> Pokaż więcej</span>
-            </div>
-
-            <div class="asideFilter">
-                <h3>Przekątna ekranu</h3>
-                <p>Sortuj A-Z</p>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Ponad6"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Ponad 6" (34)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="5.5-6"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>5.5" - 6" (13)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="4.1-4.7"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>4.1" - 4.7" (11)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="3.6-4"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>3.6" - 4" (9)</span>
-                    </label>
-                </div>
-
-                <span class="FilterItemMore"><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> Pokaż więcej</span>
-            </div>
-
-            <div class="asideFilter">
-                <h3>4G LTE</h3>
-                <p>Sortuj A-Z</p>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Tak"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Tak</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="Nie"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>Nie</span>
-                    </label>
-                </div>
-
-                <span class="FilterItemMore"><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> Pokaż więcej</span>
-            </div>
-
-            <div class="asideFilter">
-                <h3>Pamięć wbudowana</h3>
-                <p>Sortuj A-Z</p>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="64GB"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>64 GB (45)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="128GB"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>128 GB (25)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="256GB"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>256 GB (16)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="32GB"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>32 GB (9)</span>
-                    </label>
-                </div>
-
-                <span class="FilterItemMore"><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> Pokaż więcej</span>
-            </div>
-
-            <div class="asideFilter">
-                <h3>Pamięć RAM</h3>
-                <p>Sortuj A-Z</p>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="3GB"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>3 GB (34)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="2GB"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>2 GB (39)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="4GB"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>4 GB (14)</span>
-                    </label>
-                </div>
-
-                <div class="asideFilterItem">
-                    <label>
-                        <div class="checkbox"><input type="checkbox" value="1GB"><span class="iconify" data-icon="dashicons:yes" data-inline="false"></span></div>
-                        <span>1 GB (4)</span>
-                    </label>
-                </div>
-
-                <span class="FilterItemMore"><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> Pokaż więcej</span>
-            </div>
+                        echo '<span class="FilterItemMore"><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span> Pokaż więcej</span>';
+                    echo '</div>';
+                    $i++;
+                }
+            ?>
 
             <input type="submit" value="Filtruj" id="button">
         </form>
@@ -250,7 +119,7 @@
                 <h2><?php echo $category." "."(".$quantity.")"?></h2>
             </div>
 
-            <div class="prizeSetContainer">
+            <div class="priceSetContainer">
                 <div class="strapContainer">
                     <span>Cena (zł):</span>
 
@@ -286,291 +155,80 @@
         </div>
     </header>
 
-    
     <div class="productsList">
-        <article>
-            <div class="productPhoto">
-                <a href="#"><image src="../Products/1/Photos/1.jpg" alt=""></a>
-            </div>
 
-            <div class="productDescription">
-                <div class="productDescriptionHeader">
-                    <header>
-                        <div class="productTitle">
-                            <a href="#"><h2>Smartfon Apple iPhone 11 4/64GB Czarny</h2></a>
+        <?php
+            $i = 0;
+            foreach($products as $item){
+                echo '<article>';
+                    echo '<div class="productPhoto">';
+                        echo '<a href="#"><image src="../Products/'.$item['product_id'].'/Photos/1.jpg" alt="'.$item['product_name'].'"></a>';
+                    echo '</div>';
+
+                    echo '<div class="productDescription">';
+                        echo '<div class="productDescriptionHeader">';
+                            echo '<header>';
+
+                                echo '<div class="productTitle">';
+                                    echo '<a href="#"><h2>'.$item['product_name'].'</h2></a>';
+                                echo '</div>';
+
+                                echo '<div class="productAttribute">';
+                                    echo '<p>'.$item['product_info'].'</p>';
+                                echo '</div>';
+
+                                echo '<div class="productID">';
+                                    echo '<span>ID produktu: '.$item['product_id'].'</span>';
+                                echo '</div>';
+
+                            echo '</header>';
+                        echo '</div>';
+
+                        echo '
+                        <div class="productRecommendation">
+                            <div class="stars">
+                                <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
+                                <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
+                                <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
+                                <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
+                                <span class="iconify" data-icon="bx:bxs-star-half" data-inline="false" data-width="24" data-height="24"></span>
+                            </div>
+        
+                            <div class="quantityReviews">
+                                <span>(78)</span>
+                            </div>
+        
+                            <div class="quantityOrders">
+                                <span>Kupiło 20 osób</span>
+                            </div>
                         </div>
+        
+                        <div class="basicSpecification">';
+                            foreach($basicSpecs[$i] as $basicSpec){
+                                echo '<div class="basicSpecificationItem">';
+                                    echo '<h3>'.$basicSpec['attribute_name'].': </h3><p>'.$basicSpec['product_attribute_value'].'</p>';
+                                echo '</div>';
+                            }
+                        echo '</div>';
+                    echo '</div>';
 
-                        <div class="productAttribute">
-                            <p>Pamięć wbudowana: 32 GB Czarny 750 x 1334</p>
-                        </div>
-                        <div class="productID">
-                            <span>ID produktu: 1</span>
-                        </div>
-                    </header>
-                </div>
+                    echo '<div class="productPrice">';
+                        if($item['product_discount'] != 0){
+                            echo '<div class="discountPrice">'.$item['product_price'].' zł</div>';
+                            echo '<div class="price"><span>'.$item['product_discount'].' zł</span></div>';
+                        }
 
-                <div class="productRecommendation">
-                    <div class="stars">
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="bx:bxs-star-half" data-inline="false" data-width="24" data-height="24"></span>
-                    </div>
+                        else{
+                            echo '<div class="price"><span>'.$item['product_price'].' zł</span></div>';
+                        }
 
-                    <div class="quantityReviews">
-                        <span>(78)</span>
-                    </div>
+                        echo '<button>Dodaj do koszyka</button>';
+                    echo '</div>';
 
-                    <div class="quantityOrders">
-                        <span>Kupiło 20 osób</span>
-                    </div>
-                </div>
+                echo '</article>';
 
-                <div class="basicSpecification">
-                    <div class="basicSpecificationItem">
-                        <h3>Aparat główny [MPix]: </h3> <p>12 + 12</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Dual SIM: </h3> <p>Tak</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Pamięć RAM: </h3> <p>4 GB</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Pamięć wbudowana: </h3> <p>64 GB</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Przekątna ekranu ["]: </h3> <p>6.1</p>
-                    </div>
-                </div>
-            </div>
-            <div class="productPrize">
-                <div class="discountPrize">3 913,99 zł</div>
-                <div class="prize">
-                    <span>3 559 zł</span>
-                </div>
-
-                <button>Dodaj do koszyka</button>
-            </div>
-        </article>
-
-        <article>
-            <div class="productPhoto">
-                <a href="#"><image src="../Products/1/Photos/1.jpg" alt=""></a>
-            </div>
-
-            <div class="productDescription">
-                <div class="productDescriptionHeader">
-                    <header>
-                        <div class="productTitle">
-                            <a href="#"><h2>Smartfon Apple iPhone 11 4/64GB Czarny</h2></a>
-                        </div>
-
-                        <div class="productAttribute">
-                            <p>Pamięć wbudowana: 32 GB Czarny 750 x 1334</p>
-                        </div>
-                        <div class="productID">
-                            <span>ID produktu: 1</span>
-                        </div>
-                    </header>
-                </div>
-
-                <div class="productRecommendation">
-                    <div class="stars">
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="bx:bxs-star-half" data-inline="false"></span>
-                        <span class="iconify" data-icon="bx:bxs-star-half" data-inline="false" data-width="24" data-height="24"></span>
-                    </div>
-
-                    <div class="quantityReviews">
-                        <span>(78)</span>
-                    </div>
-
-                    <div class="quantityOrders">
-                        <span>Kupiło 20 osób</span>
-                    </div>
-                </div>
-
-                <div class="basicSpecification">
-                    <div class="basicSpecificationItem">
-                        <h3>Aparat główny [MPix]: </h3> <p>12 + 12</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Dual SIM: </h3> <p>Tak</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Pamięć RAM: </h3> <p>4 GB</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Pamięć wbudowana: </h3> <p>64 GB</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Przekątna ekranu ["]: </h3> <p>6.1</p>
-                    </div>
-                </div>
-            </div>
-            <div class="productPrize">
-                <div class="discountPrize">3 913,99 zł</div>
-                <div class="prize">
-                    <span>3 559 zł</span>
-                </div>
-
-                <button>Dodaj do koszyka</button>
-            </div>
-        </article>
-
-        <article>
-            <div class="productPhoto">
-                <a href="#"><image src="../Products/1/Photos/1.jpg" alt=""></a>
-            </div>
-
-            <div class="productDescription">
-                <div class="productDescriptionHeader">
-                    <header>
-                        <div class="productTitle">
-                            <a href="#"><h2>Smartfon Apple iPhone 11 4/64GB Czarny</h2></a>
-                        </div>
-
-                        <div class="productAttribute">
-                            <p>Pamięć wbudowana: 32 GB Czarny 750 x 1334</p>
-                        </div>
-                        <div class="productID">
-                            <span>ID produktu: 1</span>
-                        </div>
-                    </header>
-                </div>
-
-                <div class="productRecommendation">
-                    <div class="stars">
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                    </div>
-
-                    <div class="quantityReviews">
-                        <span>(78)</span>
-                    </div>
-
-                    <div class="quantityOrders">
-                        <span>Kupiło 20 osób</span>
-                    </div>
-                </div>
-
-                <div class="basicSpecification">
-                    <div class="basicSpecificationItem">
-                        <h3>Aparat główny [MPix]: </h3> <p>12 + 12</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Dual SIM: </h3> <p>Tak</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Pamięć RAM: </h3> <p>4 GB</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Pamięć wbudowana: </h3> <p>64 GB</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Przekątna ekranu ["]: </h3> <p>6.1</p>
-                    </div>
-                </div>
-            </div>
-            <div class="productPrize">
-                <div class="discountPrize">3 913,99 zł</div>
-                <div class="prize">
-                    <span>3 559 zł</span>
-                </div>
-
-                <button>Dodaj do koszyka</button>
-            </div>
-        </article>
-
-        <article>
-            <div class="productPhoto">
-                <a href="#"><image src="../Products/1/Photos/1.jpg" alt=""></a>
-            </div>
-
-            <div class="productDescription">
-                <div class="productDescriptionHeader">
-                    <header>
-                        <div class="productTitle">
-                            <a href="#"><h2>Smartfon Apple iPhone 11 4/64GB Czarny</h2></a>
-                        </div>
-
-                        <div class="productAttribute">
-                            <p>Pamięć wbudowana: 32 GB Czarny 750 x 1334</p>
-                        </div>
-                        <div class="productID">
-                            <span>ID produktu: 1</span>
-                        </div>
-                    </header>
-                </div>
-
-                <div class="productRecommendation">
-                    <div class="stars">
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                        <span class="iconify" data-icon="ant-design:star-fill" data-inline="false"></span>
-                    </div>
-
-                    <div class="quantityReviews">
-                        <span>(78)</span>
-                    </div>
-
-                    <div class="quantityOrders">
-                        <span>Kupiło 20 osób</span>
-                    </div>
-                </div>
-
-                <div class="basicSpecification">
-                    <div class="basicSpecificationItem">
-                        <h3>Aparat główny [MPix]: </h3> <p>12 + 12</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Dual SIM: </h3> <p>Tak</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Pamięć RAM: </h3> <p>4 GB</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Pamięć wbudowana: </h3> <p>64 GB</p>
-                    </div>
-
-                    <div class="basicSpecificationItem">
-                        <h3>Przekątna ekranu ["]: </h3> <p>6.1</p>
-                    </div>
-                </div>
-            </div>
-            <div class="productPrize">
-                <div class="discountPrize">3 913,99 zł</div>
-                <div class="prize">
-                    <span>3 559 zł</span>
-                </div>
-
-                <button>Dodaj do koszyka</button>
-            </div>
-        </article>
-
+                $i++;
+            }
+        ?>
     </div>
 </section>
